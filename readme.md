@@ -1,8 +1,8 @@
-# Instagram Clone Backend
+#   Instagram Clone Backend
 
 This test project is part of an assignment from Commsult, designed to showcase the development of a full-stack Instagram clone. It includes two projects: a mobile application (using Flutter) and a backend service (using Springboot). The mobile app replicates core Instagram features, such as posting, commenting, and liking, while the backend handles data storage, authentication, and API functionality.
 
-## Tech Stack and Libraries
+##  Tech Stack and Libraries
 
 - Java with Springboot and Hibernate JPA
 - MySQL Database
@@ -11,7 +11,7 @@ This test project is part of an assignment from Commsult, designed to showcase t
 - Java Faker
 - Docker
 
-## Services
+##  Services
 
 ### User Service
 
@@ -32,25 +32,23 @@ This test project is part of an assignment from Commsult, designed to showcase t
 1. Get Comments based on Post
 2. Add Comment
 
-## How To Run
-
+##  How To Run
 1. Clone the repository
 
 ```
 git clone https://github.com/wendywinata128/be-assignment.git
 ```
 
-2. Run mysql in your computer, this is the example with docker :
-
+2. Set Up Mysql in your computer, Here's an example of how I do this with Docker:
 ```
-    docker run -e ALLOW_EMPTY_PASSWORD=true --name mysql_commsult_test -p 3306:3306  mysql
+docker run -e ALLOW_EMPTY_PASSWORD=true --name mysql_commsult_test -p 3306:3306  mysql
 ```
 
-3. Open database.sql and import or run manually the sql to create database and the tables.
+3.  Open database.sql and either import the file or run the SQL commands manually to create the necessary database and tables.
 
-4. Run your springboot, at first times Springboot will run seeder with **DatabaseSeeder.java**.
+4. Start the Spring Boot application. On the first run, it will execute the seeder located in DatabaseSeeder.java to populate initial data.
 
-5. Explore the APIs, example user is
+5.  You can start exploring the APIs. Here’s an example of a sample user you can use for login:
 ```
 {
     "username": "codi.ziemann",
@@ -58,8 +56,11 @@ git clone https://github.com/wendywinata128/be-assignment.git
 }
 ```
 
-## API Endpoints Documentation
+##  API Endpoints Documentation
 Api documentations can be found at file [Api Documentation](api-documentation.md)
+
+##  Authentication
+The authentication and authorization is maintained using JWT token.
 
 ## Contact
 

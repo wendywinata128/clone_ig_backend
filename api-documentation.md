@@ -1,8 +1,8 @@
 ## Authentication
+### `POST /user/login`
+Login and Get User Token
 
-`POST /user/login` Login and getting user Token
-
-**body**
+**Body**
 
 ```
 {
@@ -11,9 +11,9 @@
 }
 ```
 
-`POST /user/register` Sign up new user
-
-**body**
+### `POST /user/register` 
+Register new Account
+**Body**
 
 ```
 {
@@ -24,20 +24,22 @@
 }
 ```
 
-`GET /user/` Get Current Login User
+### `GET /user/` 
+Get Current Login User
 
 ## Post
 
-`GET /posts/home` Get Post in User Home
+## # `GET /posts/home` 
+Get User Post Data based on User Followings
 
 **Query Params**
-
 ```
 page:0
 sort:createddt,desc
 ```
 
-`POST /posts` Create Post
+### `POST /posts` 
+Create Post by User
 
 **Body Form Data**
 
@@ -46,33 +48,33 @@ sort:createddt,desc
     "description":  "Nisi voluptate ex proident elit a"
 ```
 
-`PATCH /posts/:postId/likes`
-  **Params**
+###  `PATCH /posts/:postId/likes`
+Toggle Like and Unlike of Post
 
+**Params**
 ```
     postId: 12
 ```
 
 ## Comments
 
-`GET /comments/:postId` Get Comments based on Post
+### `GET /comments/:postId` 
+Get Comments based on Post ID
 
 **Params**
-
 ```
 postId: 1
 ```
 
-`POST /comments/:postId` Add Comments
+### `POST /comments/:postId` 
+Add Comment to Post
 
 **Params**
-
 ```
 postId: 1
 ```
 
 **Body**
-
 ```
 {
     "description": "contoh comment"
@@ -80,22 +82,44 @@ postId: 1
 ```
 
 ## User
-
-`GET user/:username` Profile Details
-
-`GET user/stories` Current User Stories
-
-`POST user/3/follow` Follow User
-
-`DELETE user/3/unfollow` Unfollow User
-
-`GET user/search/:keyword` Search User
-
-## File
-`GET /files/post/:fileName` Get Post Files
-
+### `GET user/:username` 
+Get Profile Details based on Username
 **Params**
 
+```
+    username: wndy128
+```
+
+### `GET user/stories` 
+Get Current User Stories
+
+### `POST user/:userId/follow` 
+Follow User
+**Params**
+```
+userId: 1
+```
+
+### `DELETE user/:userId/unfollow` 
+Unfollow User
+**Params**
+```
+userId: 1
+```
+
+### `GET user/search/:keyword` 
+Search User based on Username or Name
+**Params**
+
+```
+keyword: wndy128
+```
+
+## File
+### `GET /files/post/:fileName` 
+Get Post Files
+
+**Params**
 ```
 fileName: dummy.jpg
 ```
