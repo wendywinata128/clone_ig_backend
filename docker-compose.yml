@@ -1,0 +1,19 @@
+name: api-ig-clone
+
+services:
+  mysql:
+    image: mysql:latest
+    ports:
+      - 127.0.0.1:3306:3306,
+    networks:
+      - db-networks
+    environment:
+      - MYSQL_ALLOW_EMPTY_PASSWORD=true
+  api_ig:
+    build: .
+    networks:
+      - db-networks
+    ports:
+      - 127.0.0.1:8080:8080
+    depends_on:
+      - mysql
