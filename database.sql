@@ -2,8 +2,6 @@ CREATE DATABASE mysql_commsult_ig;
 
 USE mysql_commsult_ig;
 
-DELETE FROM users;
-
 CREATE TABLE users (
     id BIGINT PRIMARY KEY AUTO_INCREMENT,
     email VARCHAR(100) UNIQUE,
