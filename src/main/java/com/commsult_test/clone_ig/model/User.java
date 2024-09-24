@@ -50,6 +50,8 @@ public class User extends BasicModel implements UserDetails {
 
     private String name;
 
+    private String role;
+
     @Column(nullable = true)
     private String avatar;
 

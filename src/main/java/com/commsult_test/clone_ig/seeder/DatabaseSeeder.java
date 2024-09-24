@@ -57,6 +57,7 @@ public class DatabaseSeeder implements CommandLineRunner {
                     .name(faker.name().name())
                     .avatar(null)
                     .password("dummy123")
+                    .role(i == 0 ? "admin" : "user")
                     .email(faker.internet().emailAddress())
                     .build();
             User user = userService.register(userDummy);

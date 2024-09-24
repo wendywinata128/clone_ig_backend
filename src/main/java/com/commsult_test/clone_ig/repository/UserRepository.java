@@ -19,7 +19,7 @@ public interface UserRepository extends JpaRepository<User, Long> {
     boolean existsByEmail(String email);
     boolean existsByUsername(String username);
 
-    Optional<User> findByUsername(String email);
+    User findByUsername(String email);
 
     @Query("SELECT u from User u WHERE u.username LIKE %:keyword%  OR u.name LIKE %:keyword%")
     Page<User> findByUsernameLike(String keyword, Pageable pageable);

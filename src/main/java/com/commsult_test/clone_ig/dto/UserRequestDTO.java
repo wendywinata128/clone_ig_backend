@@ -22,6 +22,8 @@ public class UserRequestDTO {
 
     MultipartFile avatar;
 
+    String role;
+
     @NotNull
     String password;
 }

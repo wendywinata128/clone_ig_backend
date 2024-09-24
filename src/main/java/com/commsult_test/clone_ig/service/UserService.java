@@ -74,6 +74,7 @@ public class UserService {
                 .avatar(pathAvatar)
                 .username(userRequest.getUsername())
                 .email(userRequest.getEmail())
+                .role(userRequest.getRole())
                 .build();
 
         user.setPassword(passwordEncoder.encode(userRequest.getPassword()));
@@ -83,8 +84,12 @@ public class UserService {
         return userResult;
     }
 
-    public String login(LoginRequestDTO loginRequestDTO) {
-        User user = userRepository.findByUsername(loginRequestDTO.getUsername()).orElseThrow();
+    public String login(LoginRequestDTO loginRequestDTO) throws ResponseException {
+        User user = userRepository.findByUsername(loginRequestDTO.getUsername());
+
+        if(user == null){
+            throw new ResponseException("Authentication Failed", 401, user);
+        }
 
         authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(loginRequestDTO.getUsername(), loginRequestDTO.getPassword()));

@@ -2,6 +2,7 @@ package com.commsult_test.clone_ig.service;
 
 import java.io.IOException;
 import java.util.Optional;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -20,6 +21,7 @@ import com.commsult_test.clone_ig.repository.PostRepository;
 import com.commsult_test.clone_ig.utils.Constant;
 import com.commsult_test.clone_ig.utils.FileUploadUtil;
 import com.commsult_test.clone_ig.utils.FunctionUtil;
+
 
 @Service
 public class PostService {
@@ -97,6 +99,20 @@ public class PostService {
             postLikeRepository.save(postLikeNew);
             return user.getName() + " Like the post";
         }
+    }
 
+
+    public List<Post> getUserPostData(){
+        User user = userService.getUser();
+
+        List<Post> listPosts;
+
+        if(user.getRole().equals("user")){
+            listPosts = postRepository.findAllByUserUsername(user.getUsername());
+        }else{
+            listPosts = postRepository.findAll();
+        }
+
+        return listPosts;
     }
 }

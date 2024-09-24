@@ -56,4 +56,8 @@ CREATE TABLE user_follows (
 )
 
 
+ALTER TABLE users 
+ADD role VARCHAR(100);
+
+
 

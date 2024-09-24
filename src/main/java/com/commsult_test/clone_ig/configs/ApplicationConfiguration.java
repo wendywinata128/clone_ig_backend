@@ -21,7 +21,7 @@ public class ApplicationConfiguration {
 
     @Bean
     UserDetailsService userDetailsService(){
-        return username -> userRepository.findByUsername(username).orElseThrow();
+        return username -> userRepository.findByUsername(username);
     }
 
     @Bean

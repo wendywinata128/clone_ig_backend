@@ -46,7 +46,7 @@ public class UserController extends BasicController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<BasicResponse<String>> login(@Valid @RequestBody LoginRequestDTO loginRequestDto, HttpServletResponse response) {
+    public ResponseEntity<BasicResponse<String>> login(@Valid @RequestBody LoginRequestDTO loginRequestDto, HttpServletResponse response) throws ResponseException {
 
         String token = userService.login(loginRequestDto);
 
